@@ -9,11 +9,9 @@
     "url": ""
   },
   "scripts": {
-    "//[ Build tasks ]//": "",
     "build": "webpack --mode development --progress",
     "build:prod": "webpack --mode production",
-    "start": "webpack --mode development --progress --watch",
-    "start:reload": "webpack-dev-server"
+    "start": "webpack --mode development --progress --watch"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
