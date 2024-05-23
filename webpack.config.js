@@ -97,32 +97,6 @@ const webpackConfig = (argv) => {
     };
 
     options.stats = stats;
-
-    // See https://webpack.js.org/configuration/dev-server/.
-    options.devServer = {
-      // Enable gzip compression for everything served.
-      compress: true,
-      static: false,
-      host: "0.0.0.0",
-      // When set to 'auto' this option always allows localhost, host, and client.webSocketURL.hostname
-      allowedHosts: "auto",
-      port: 3000,
-      proxy: {
-        context: () => true,
-        target: "http://localhost:8000",
-      },
-      client: {
-        // Shows a full-screen overlay in the browser when there are compiler errors.
-        overlay: true,
-        logging: "error",
-      },
-      devMiddleware: {
-        index: true,
-        publicPath: "/static/",
-        writeToDisk: true,
-        stats,
-      },
-    };
   }
 
   return options;
