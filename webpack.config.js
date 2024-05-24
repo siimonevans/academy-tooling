@@ -1,6 +1,7 @@
 const path = require("path");
 const sass = require("sass");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const options = {
@@ -17,6 +18,15 @@ const options = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: "css/[name].css",
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "fonts",
+          context: path.resolve(`./static_src/`),
+          to: path.resolve(`./static_compiled/fonts`),
+        },
+      ],
     }),
     //  Automatically remove all unused webpack assets on rebuild
     new CleanWebpackPlugin(),
@@ -57,6 +67,11 @@ const options = {
             },
           },
         ],
+      },
+      {
+        test: /\.(woff|woff2)$/,
+        include: /fonts/,
+        type: "asset/resource",
       },
     ],
   },
