@@ -55,6 +55,13 @@ Create new references in your base template to reflect both of these, for exampl
 <link rel="stylesheet" type="text/css" href='[static_path]/static_compiled/css/main.css'>
 ```
 
+You will likely need to update your `STATICFILES_DIRS` to support this change, e.g:
+```
+STATICFILES_DIRS = [
+    BASE_DIR / "static_compiled",
+]
+```
+
 > Note: If you like, you can modify the entry and output paths in `webpack.config.js` to suit your project's architecture as necessary.
 
 ### Updating your existing front-end assets to work with the tooling
