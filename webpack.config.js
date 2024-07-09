@@ -77,7 +77,7 @@ const options = {
   },
 };
 
-const webpackConfig = (argv) => {
+const webpackConfig = (env, argv) => {
   const isProduction = argv.mode === "production";
 
   options.mode = isProduction ? "production" : "development";
